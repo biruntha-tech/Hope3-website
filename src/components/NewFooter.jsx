@@ -1,7 +1,9 @@
-import linkedinLogo from '../assets/linkedn_logo.png'
-import fbLogo from '../assets/fb_logo.png'
-import youtubeLogo from '../assets/yb_logo.png'
-import instaLogo from '../assets/ints_logo.png'
+import linkedinLogo from '../assets/linkedin-removebg-preview.png'
+import fbLogo from '../assets/facebook-removebg-preview.png'
+import youtubeLogo from '../assets/youtube-removebg-preview.png'
+import instaLogo from '../assets/instagram-removebg-preview.png'
+import twitter from '../assets/twitter-removebg-preview.png'
+// import '../styles/NewFooter.css'
 
 const NewFooter = () => {
   return (
@@ -9,18 +11,19 @@ const NewFooter = () => {
       <div className="footer-outer-box">
         <div className="footer-box">
           <div className="footer-left" style={{lineHeight: '1.2'}}>
-            <div className="footer-title" style={{marginBottom: '0'}}>HOPE3</div>
+            <div className="footer-title" style={{marginBottom: '0'}}>HOPE3 FOUNDATION</div>
             <div className="footer-address" style={{marginBottom: '0', marginTop: '0'}}>
               Sammamish, WA - 98074
             </div>
             <a href="mailto:contact@hope3.org" className="footer-email" style={{marginTop: '0'}}>
               contact@hope3.org
             </a>
-            <div className="social-links">
-               <img src={linkedinLogo} alt="LinkedIn" />
-               <img src={fbLogo} alt="Facebook" />
-              <img src={youtubeLogo} alt="Youtube" />
-               <img src={instaLogo} alt="Instagram" />
+            <div className="social-links" style={{display: 'flex', gap: '5px', marginTop: '10px'}}>
+               <img src={linkedinLogo} alt="LinkedIn" style={{width: '35px', height: '35px', borderRadius: '50%', objectFit: 'contain'}} />
+               <img src={fbLogo} alt="Facebook" style={{width: '35px', height: '35px', borderRadius: '50%', objectFit: 'contain'}} />
+               <img src={youtubeLogo} alt="Youtube" style={{width: '35px', height: '35px', borderRadius: '50%', objectFit: 'contain'}} />
+               <img src={instaLogo} alt="Instagram" style={{width: '35px', height: '35px', borderRadius: '50%', objectFit: 'contain'}} />
+               <img src={twitter} alt="Twitter" style={{width: '35px', height: '35px', borderRadius: '50%', objectFit: 'contain'}} />
             </div>
           </div>
           <div className="footer-right" style={{lineHeight: '1.2'}}>

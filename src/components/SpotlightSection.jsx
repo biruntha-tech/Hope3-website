@@ -59,14 +59,14 @@ const SpotlightSection = () => {
                 onClick={() => window.open(item.link, '_blank')}
               >
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-semibold text-purple-700 hover:text-purple-600 transition-colors">
+                  <h3 className="text-lg font-semibold text-black hover:text-gray-700 transition-colors">
                     {item.title}
                   </h3>
-                  <span className="text-sm text-purple-600 whitespace-nowrap ml-4">
+                  <span className="text-sm text-black whitespace-nowrap ml-4">
                     {item.date}
                   </span>
                 </div>
-                <p className="text-purple-700">
+                <p className="text-black">
                   {item.description}
                 </p>
               </div>
