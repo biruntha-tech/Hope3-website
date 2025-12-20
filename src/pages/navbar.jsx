@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/navbar.css';
 import logo from '../assets/hope3_logo.png';
 import hope3 from '../assets/hope3.png';
 import usericon from '../assets/img1.png';
-// import GetInvolvedMenu from '../GetInvolvedMenu';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [clickedDropdown, setClickedDropdown] = useState(null);
@@ -75,15 +75,14 @@ const Navbar = () => {
             </button>
             {activeDropdown === 'Our Work' && (
               <div className="dropdown show">
-                {menuItems['Our Work'].map((item, index) => (
-                  <div key={index} className="dropdown-link">{item}</div>
-                ))}
+                <div className="dropdown-link">Our Students</div>
+                <div className="dropdown-link">Our Projects</div>
               </div>
             )}
           </div>
           <div className="navbar-section" ref={el => dropdownRefs.current['Our Impact'] = el}
                onMouseEnter={() => !clickedDropdown && setActiveDropdown('Our Impact')}
-               onMouseLeave={() => !clickedDropdown && setActiveDropdown(null)}>
+               onMouseLeave={() => !clickedDropdown && setTimeout(() => setActiveDropdown(null), 100)}>
             <button 
               className="section-title"
               onClick={() => {
@@ -95,14 +94,20 @@ const Navbar = () => {
               Our Impact
             </button>
             {activeDropdown === 'Our Impact' && (
-              <div className="dropdown show">
-                {menuItems['Our Impact'].map((item, index) => (
-                  item === 'Why HOPE3?' ? (
-                    <Link key={index} to="/why-hope3" className="dropdown-link">{item}</Link>
-                  ) : (
-                    <div key={index} className="dropdown-link">{item}</div>
-                  )
-                ))}
+              <div className="dropdown show"
+                   onMouseEnter={() => setActiveDropdown('Our Impact')}
+                   onMouseLeave={() => setTimeout(() => setActiveDropdown(null), 100)}>
+                <Link 
+                  to='/why-hope3'
+                  className="dropdown-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/why-hope3';
+                  }}
+                >
+                  Why HOPE3?
+                </Link>
+                <div className="dropdown-link">HOPE3 Journey</div>
               </div>
             )}
           </div>
@@ -126,9 +131,7 @@ const Navbar = () => {
             </button>
             {activeDropdown === 'Services' && (
               <div className="dropdown show">
-                {menuItems['Services'].map((item, index) => (
-                  <div key={index} className="dropdown-link">{item}</div>
-                ))}
+                <div className="dropdown-link">Services</div>
               </div>
             )}
           </div>
@@ -147,9 +150,10 @@ const Navbar = () => {
             </button>
             {activeDropdown === 'About Us' && (
               <div className="dropdown show">
-                {menuItems['About Us'].map((item, index) => (
-                  <div key={index} className="dropdown-link">{item}</div>
-                ))}
+                <div className="dropdown-link">Leadership & Board</div>
+                <div className="dropdown-link">Financials</div>
+                <div className="dropdown-link">FAQ</div>
+                <div className="dropdown-link">Be Informed</div>
               </div>
             )}
           </div>
