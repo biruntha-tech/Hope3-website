@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from './navbar.jsx';
 import NewFooter from './NewFooter.jsx';
-import '../styles/whyhope3.css';
+import '../styles/whyHope3.css';
 import headerImg from '../assets/college-background1.jpg';
 import hope3Logo from '../assets/hope3.png';
 import img1 from '../assets/education.jpeg';
