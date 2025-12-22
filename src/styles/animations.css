@@ -1,0 +1,347 @@
+/* Animations Page Styles */
+
+.animations-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.animations-content {
+    padding: 80px 20px 40px;
+    text-align: center;
+}
+
+.animations-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.animations-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .animations-title {
+        font-size: 2rem;
+    }
+
+    .animations-description {
+        font-size: 1rem;
+    }
+
+    .animations-content {
+        padding: 60px 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animations-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* "Inside the Box" Absolute Grid Styles */
+.dark-mode-store {
+    background-color: #000;
+    border-radius: 40px;
+    padding: 50px 40px !important;
+    margin-top: 50px !important;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.today-header {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.current-date {
+    display: block;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.store-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.user-profile-img {
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: #1a1a1a;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.user-profile-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: #007aff;
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
+}
+
+.card-grid-absolute {
+    position: relative;
+    height: 800px;
+    /* Fixed height for the grid box */
+    width: 100%;
+}
+
+.click-card {
+    position: absolute;
+    width: calc(50% - 15px);
+    height: 380px;
+    border-radius: 28px;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1;
+}
+
+/* Standardized positioning for 2x2 grid to ensure expansion origin symmetry */
+.click-card.mountain {
+    top: 0;
+    left: 0;
+}
+
+.click-card.leaves {
+    top: 0;
+    left: calc(50% + 15px);
+}
+
+.click-card.stairs {
+    top: calc(380px + 40px);
+    left: 0;
+}
+
+.click-card.hat {
+    top: calc(380px + 40px);
+    left: calc(50% + 15px);
+}
+
+.click-card.expanded {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 100 !important;
+    border-radius: 35px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Sibling cards stay in place but fade for depth - Front Popup effect */
+.card-grid-absolute.has-expanded .click-card:not(.expanded) {
+    opacity: 0.15;
+    filter: blur(12px) grayscale(1);
+    /* Removed scale transform for Front Popup effect */
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.close-card-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: none;
+    color: white;
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-card-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.hover-card-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hover-card-image-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hover-card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.click-card.expanded .hover-card-image-wrap img {
+    transform: scale(1.1);
+}
+
+.hover-card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.6s ease;
+}
+
+.info-top {
+    transition: transform 0.6s ease;
+}
+
+.click-card.expanded .info-top {
+    transform: translateY(-8px);
+}
+
+.category {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+}
+
+.card-h2 {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 4px 0;
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+}
+
+.info-bottom {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.click-card.expanded .info-bottom {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+.reveal-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 90%;
+}
+
+.card-action {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.get-btn {
+    background: #007aff;
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 8px 24px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.get-btn:hover {
+    background: #0084ff;
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.5);
+}
+
+.in-app {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* Specific Card Adjustments if needed */
+.click-card.mountain .hover-card-image-wrap img {
+    object-position: center;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-grid-absolute {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .click-card {
+        position: relative;
+        /* Back to flow on mobile */
+        width: 100% !important;
+        height: 350px !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+    }
+
+    .click-card.expanded {
+        height: 450px !important;
+        position: relative !important;
+        z-index: 10 !important;
+    }
+
+    .card-grid-absolute.has-expanded .click-card:not(.expanded) {
+        height: 0;
+        margin: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+}
