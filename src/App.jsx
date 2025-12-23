@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import WhyHope3 from './pages/whyHope3.jsx'
+import Donate from './pages/Donate.jsx'
 
 function App() {
   return (
@@ -8,9 +9,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/why-hope3" element={<WhyHope3 />} />
+        <Route path="/donate" element={<Donate />} />
       </Routes>
     </Router>
   )
 }
 
 export default App
+

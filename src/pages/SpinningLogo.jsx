@@ -1,20 +1,27 @@
 "use client"
 
 import '../styles/spinningLogo.css'
-import hope3Logo from '../assets/hope3_logo.png'
+import hope3Logo from '../assets/hope3_logo1.png'
 
 function SpinningLogo() {
   const splitText = (text, color) => {
     return text.split('').map((letter, index) => (
-      <span key={index} className="letter" style={{color: color, fontSize: '65px', fontWeight: '950', fontFamily: 'Arial, sans-serif'}}>{letter}</span>
+      <span key={index} className="letter" style={{color: color, fontSize: '65px', fontWeight: '950', fontFamily: 'Abril Fatface, serif'}}>{letter}</span>
     ));
   };
 
   return (
-    <div className="spinning-logo-container" style={{display: 'flex', alignItems: 'center', gap: '2rem', justifyContent: 'flex-start'}}>
+    <div className="spinning-logo-container" style={{
+      display: 'flex', 
+      alignItems: 'center', 
+      gap: '2rem', 
+      justifyContent: 'center',
+      padding: '2rem 1rem',
+      minHeight: '200px'
+    }}>
       <div className="logo-wrapper">
         <img src={hope3Logo} alt="HOPE3 Logo" className="spinning-logo" style={{width: '200px', height: '200px'}} />
-        <div className="logo-text" style={{fontFamily: 'Keep On Truckin\'', fontSize: '32px', fontWeight: '950', color: 'blue', textAlign: 'center'}}>HOPE3</div>
+        <div className="logo-text" style={{fontFamily: 'Abril Fatface, serif', fontSize: '32px', fontWeight: '950', color: 'blue', textAlign: 'center'}}>HOPE3</div>
       </div>
       
       <div className="text-content">

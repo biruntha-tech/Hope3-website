@@ -25,7 +25,7 @@ const HeroSection = () => {
   }`}
 >
   {/* Quote */}
-  <blockquote className="text-white text-[26px] md:text-[30px] font-light leading-relaxed text-center">
+  <blockquote className="text-white text-[26px] md:text-[30px] font-light leading-relaxed text-center" style={{fontFamily: 'Ruslan Display, serif'}}>
     “Learning gives creativity, creativity leads to thinking,
     thinking provides knowledge, knowledge makes you great.”
   </blockquote>
