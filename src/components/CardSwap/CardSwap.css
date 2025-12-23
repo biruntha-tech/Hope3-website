@@ -1,0 +1,222 @@
+.card-swap-container {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-30%, 60%);
+    transform-origin: center center;
+
+    perspective: 1200px;
+    overflow: visible;
+}
+
+.card-swap-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(102, 126, 234, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    transform-style: preserve-3d;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Browser Tab Bar */
+.browser-tab-bar {
+    display: flex;
+    align-items: center;
+    background: #202124;
+    padding: 8px 12px 0;
+    gap: 4px;
+    border-bottom: 1px solid #3c4043;
+}
+
+.browser-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #35363a;
+    padding: 8px 16px;
+    border-radius: 8px 8px 0 0;
+    max-width: 200px;
+    position: relative;
+}
+
+.browser-tab.active {
+    background: #292a2d;
+}
+
+.browser-tab-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+}
+
+.browser-tab-title {
+    color: #e8eaed;
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.browser-tab-close {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9aa0a6;
+    font-size: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.browser-tab-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.new-tab-btn {
+    color: #9aa0a6;
+    font-size: 18px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+/* Browser URL Bar */
+.browser-url-bar {
+    display: flex;
+    align-items: center;
+    background: #292a2d;
+    padding: 8px 12px;
+    gap: 12px;
+}
+
+.browser-nav-buttons {
+    display: flex;
+    gap: 8px;
+    color: #9aa0a6;
+}
+
+.browser-nav-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.browser-url-input {
+    flex: 1;
+    background: #35363a;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.browser-url-lock {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+.browser-url-text {
+    color: #e8eaed;
+    font-size: 13px;
+}
+
+.browser-actions {
+    display: flex;
+    gap: 8px;
+    color: #9aa0a6;
+}
+
+.browser-action-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* Browser Content */
+.browser-content {
+    flex: 1;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.browser-content-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.browser-content-header h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.browser-content-header p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.browser-content-body {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.content-placeholder {
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+.content-placeholder.short {
+    width: 60%;
+}
+
+.content-placeholder.medium {
+    width: 80%;
+}
+
+.browser-content-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+@media (max-width: 768px) {
+    .card-swap-container {
+        transform: scale(0.75) translate(25%, 25%);
+    }
+}
+
+@media (max-width: 480px) {
+    .card-swap-container {
+        transform: scale(0.55) translate(25%, 25%);
+    }
+}
