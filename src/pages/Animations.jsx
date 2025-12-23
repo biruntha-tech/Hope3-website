@@ -4,6 +4,7 @@ import Navbar from "./navbar.jsx";
 import NewFooter from "./NewFooter.jsx";
 import "../styles/animations.css";
 import CardSwap, { Card as SwapCard } from "../components/CardSwap/CardSwap";
+import FlyingPosters from "../components/FlyingPosters/FlyingPosters";
 export default function Animations() {
     const [expandedCard, setExpandedCard] = useState(null);
 
@@ -294,6 +295,25 @@ export default function Animations() {
                                 </div>
                             </SwapCard>
                         </CardSwap>
+                    </div>
+                </div>
+
+                {/* Flying Posters Animation Section */}
+                <div className="animation-section">
+                    <h2 className="section-title">Flying Posters</h2>
+                    <p className="section-description">
+                        Scroll or drag to see the 3D flying poster effect!
+                    </p>
+                    <div style={{ height: '600px', position: 'relative' }}>
+                        <FlyingPosters
+                            items={[
+                                '/src/assets/mountain-card.png',
+                                '/src/assets/leaves-card.png',
+                                '/src/assets/urban-card.png',
+                                '/src/assets/hat-card.png',
+                                '/src/assets/travel-card.png'
+                            ]}
+                        />
                     </div>
                 </div>
             </div>
