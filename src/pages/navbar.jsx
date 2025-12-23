@@ -98,7 +98,34 @@ const Navbar = () => {
               <div className="dropdown show">
                 {menuItems['Our Impact'].map((item, index) => (
                   item === 'Why HOPE3?' ? (
-                    <Link key={index} to="/why-hope3" className="dropdown-link">{item}</Link>
+                    <Link 
+                      key={index} 
+                      to="/why-hope3" 
+                      className="dropdown-link"
+                      onClick={(e) => {
+                        console.log(1);
+                        e.stopPropagation();
+                        setActiveDropdown(null);
+                        setClickedDropdown(null);
+                        setMobileOpen(false);
+                      }}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === 'HOPE3 Journey' ? (
+                    <Link 
+                      key={index} 
+                      to="/hope3-journey" 
+                      className="dropdown-link"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveDropdown(null);
+                        setClickedDropdown(null);
+                        setMobileOpen(false);
+                      }}
+                    >
+                      {item}
+                    </Link>
                   ) : (
                     <div key={index} className="dropdown-link">{item}</div>
                   )
