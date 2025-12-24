@@ -22,8 +22,8 @@ import PrathiswaranImg from '../assets/our-students/prathiswaran.png';
 import SornamImg from '../assets/our-students/sornam.png';
 import ViswanathanImg from '../assets/our-students/viswanathan.png';
 
-// Student data with life stories
-const row1Students = [
+// All students data
+const allStudents = [
     {
         id: 1,
         name: "Irfana",
@@ -37,7 +37,7 @@ const row1Students = [
         name: "Iyappan",
         image: IyappanImg,
         story: "A person's thirst for knowledge can be a strong motivator to learn anything in this vast world. Even though I was a commerce student, Hope3 varsity believed in me and encouraged me to learn computer programming. In addition to this, I have always been interested in exploring new skill sets such as product development and soft skills. The HOPE3 varsity clubs provided me with a platform to showcase my talents and hone my skills toward my interest. Although I currently work as a business analyst at a major company, I am still pursuing my dreams and striving towards greater achievements.",
-        storyTamil: "ஒரு விஷயத்தை கத்துக்கணும்-ன்ற ஆர்வம் இருந்தா போதும் நம்ம எதை வேணாலும் கத்துக்க முடியும். நான் ஒரு commerce student. இருந்தாலும் நானும் ஒரு computer programming பண்ண முடியும்-னு நம்பிக்கையும் ஊக்கத்தையும் கொடுத்தது Hope3 varsity. அது மட்டுமில்லாமல் எனக்கு நிறைய விஷயங்களை கத்துகிறது பிடிக்கும் எடுத்துக்காட்டு: soft skill, product development, communication club-ல எல்லாம் join பண்ணி படிச்சதோட மட்டும் இல்லாம அதை present பண்ண மேடையும் கொடுத்தது Hope3 varsity. இப்ப நான் ஒரு பெரிய கம்பெனில business analyst வேலை பார்த்துட்டே என்னோட பெரிய கனவுகளை நோக்கி ஓடிட்டு இருக்கேன்.",
+        storyTamil: "ஒரு விஷயத்தை கத்துக்கணும்-ன்ற ஆர்வம் இருந்தா போதும் நம்ம எதை வேணாலும் கத்துக்க முடியும். நான் ஒரு commerce student. இருந்தாலும் நானும் ஒரு computer programming பண்ண முடியும்-னு நம்பிக்கையும் ஊக்கத்தையும் கொடுத்தது Hope3 varsity. அது மட்டுமில்லாம எனக்கு நிறைய விஷயங்களை கத்துகிறது பிடிக்கும் எடுத்துக்காட்டு: soft skill, product development, communication club-ல எல்லாம் join பண்ணி படிச்சதோட மட்டும் இல்லாம அதை present பண்ண மேடையும் கொடுத்தது Hope3 varsity. இப்ப நான் ஒரு பெரிய கம்பெனில business analyst வேலை பார்த்துட்டே என்னோட பெரிய கனவுகளை நோக்கி ஓடிட்டு இருக்கேன்.",
         achievement: "The combination of interest and passion guided this government school student to secure a premium job in one of India's top MNCs."
     },
     {
@@ -96,9 +96,6 @@ const row1Students = [
         storyTamil: "என்னோட கனவே நல்லா சம்பாதித்து நிறைய பேருக்கு உதவறது தான். அந்த கனவுக்கு பக்கபலமாகவும் தகுந்த நேரங்களில் உறுதுணையாக இருந்து ஊக்கத்தையும் தெளிவையும் கொடுத்தது, என்னை முன்னேற்ற பாதைக்கு செல்ல வெச்சது Hope3 foundation. இப்ப நான் ஒரு MNC company-ல வேலை பார்த்துட்டு, என்னால முடிஞ்ச உதவிகளை செஞ்சுட்டு இருக்கேன்.",
         achievement: "Being from a government school, his focused efforts and grit helped him secure a job as a software developer."
     },
-];
-
-const row2Students = [
     {
         id: 10,
         name: "Janani",
@@ -164,78 +161,79 @@ const row2Students = [
     },
 ];
 
-// Student Card Component (no name overlay)
-const StudentCard = ({ student, onClick }) => {
+// iPhone Mockup Component
+const IPhoneMockup = ({ student, onClick }) => {
     return (
-        <div className="student-card" onClick={() => onClick(student)}>
-            <img
-                src={student.image}
-                alt={student.name}
-                className="student-card-image"
-            />
-        </div>
-    );
-};
-
-// Marquee Row Component
-const MarqueeRow = ({ students, direction, onCardClick }) => {
-    const duplicatedStudents = [...students, ...students];
-
-    return (
-        <div className="marquee-section">
-            <div className={`marquee-row ${direction === 'left' ? 'marquee-left-to-right' : 'marquee-right-to-left'}`}>
-                {duplicatedStudents.map((student, index) => (
-                    <StudentCard
-                        key={`${student.id}-${index}`}
-                        student={student}
-                        onClick={onCardClick}
+        <div className="iphone-mockup" onClick={() => onClick(student)}>
+            <div className="iphone-frame">
+                {/* Dynamic Island / Notch */}
+                <div className="iphone-notch">
+                    <div className="notch-camera"></div>
+                </div>
+                {/* Screen */}
+                <div className="iphone-screen">
+                    <img
+                        src={student.image}
+                        alt={student.name}
+                        className="iphone-student-image"
                     />
-                ))}
+                    <div className="iphone-student-name">
+                        <span>{student.name}</span>
+                    </div>
+                </div>
+                {/* Home Indicator */}
+                <div className="iphone-home-indicator"></div>
+            </div>
+            <div className="tap-hint">
+                <span>👆 Tap to view story</span>
             </div>
         </div>
     );
 };
 
-// Modal Component with Flip Card (Rectangle with image + story)
-const StudentModal = ({ student, isOpen, onClose }) => {
+// iPad Modal Component with Story
+const IPadModal = ({ student, isOpen, onClose }) => {
     if (!student) return null;
 
     return (
-        <div className={`modal-overlay ${isOpen ? 'active' : ''}`} onClick={onClose}>
-            <button className="modal-close" onClick={onClose}>×</button>
-            <div className="flip-card-container" onClick={(e) => e.stopPropagation()}>
-                <div className="flip-card">
-                    {/* Front of card */}
-                    <div className="flip-card-front">
-                        <img src={student.image} alt={student.name} />
-                        <div className="flip-card-front-overlay">
-                            <h3>{student.name}</h3>
-                            <div className="hover-hint">
-                                <span>👆</span>
-                                <span>Hover to see their story</span>
+        <div className={`ipad-modal-overlay ${isOpen ? 'active' : ''}`} onClick={onClose}>
+            <button className="ipad-modal-close" onClick={onClose}>×</button>
+            <div className="ipad-container" onClick={(e) => e.stopPropagation()}>
+                <div className="ipad-frame">
+                    {/* iPad Camera */}
+                    <div className="ipad-camera"></div>
+
+                    {/* iPad Screen */}
+                    <div className="ipad-screen">
+                        <div className="ipad-content">
+                            {/* Left side - Student Image */}
+                            <div className="ipad-image-section">
+                                <img src={student.image} alt={student.name} />
+                            </div>
+
+                            {/* Right side - Story Content */}
+                            <div className="ipad-story-section">
+                                <h2 className="ipad-student-name">{student.name}</h2>
+                                <p className="ipad-subtitle">HOPE3 Success Story</p>
+
+                                <div className="ipad-story-content">
+                                    <p className="ipad-story-text">{student.story}</p>
+
+                                    {student.storyTamil && (
+                                        <p className="ipad-story-tamil">{student.storyTamil}</p>
+                                    )}
+
+                                    <div className="ipad-achievement">
+                                        <h4>🏆 Achievement</h4>
+                                        <p>{student.achievement}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Back of card - Content only */}
-                    <div className="flip-card-back">
-                        <div className="flip-card-back-content">
-                            <h3>{student.name}</h3>
-                            <p className="role">HOPE3 Success Story</p>
-                            <p className="bio">
-                                {student.story}
-                            </p>
-                            {student.storyTamil && (
-                                <p className="bio-tamil">
-                                    {student.storyTamil}
-                                </p>
-                            )}
-                            <div className="achievement-section">
-                                <h4>What They Achieved</h4>
-                                <p>{student.achievement}</p>
-                            </div>
-                        </div>
-                    </div>
+                    {/* iPad Home Button */}
+                    <div className="ipad-home-button"></div>
                 </div>
             </div>
         </div>
@@ -247,7 +245,7 @@ const OurStudents = () => {
     const [selectedStudent, setSelectedStudent] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleCardClick = (student) => {
+    const handleIPhoneClick = (student) => {
         setSelectedStudent(student);
         setIsModalOpen(true);
         document.body.style.overflow = 'hidden';
@@ -272,22 +270,19 @@ const OurStudents = () => {
                     <span>Success Stories</span> <span className="purple-text">from our alumni</span>
                 </h2>
 
-                {/* First row - Right to Left (9 students) */}
-                <MarqueeRow
-                    students={row1Students}
-                    direction="right"
-                    onCardClick={handleCardClick}
-                />
+                {/* iPhone Grid - 4 per row */}
+                <div className="iphone-grid">
+                    {allStudents.map((student) => (
+                        <IPhoneMockup
+                            key={student.id}
+                            student={student}
+                            onClick={handleIPhoneClick}
+                        />
+                    ))}
+                </div>
 
-                {/* Second row - Left to Right (8 students) */}
-                <MarqueeRow
-                    students={row2Students}
-                    direction="left"
-                    onCardClick={handleCardClick}
-                />
-
-                {/* Modal */}
-                <StudentModal
+                {/* iPad Modal */}
+                <IPadModal
                     student={selectedStudent}
                     isOpen={isModalOpen}
                     onClose={handleCloseModal}
