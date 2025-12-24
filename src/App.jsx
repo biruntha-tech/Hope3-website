@@ -24,9 +24,12 @@ import WhyHope3 from "./pages/WhyHope3.jsx";
 import Hope3Journey from "./pages/Hope3Journey.jsx";
 import OurStudents from "./pages/OurStudents.jsx";
 
+// Use basename for GitHub Pages deployment
+const basename = import.meta.env.BASE_URL;
+
 function App() {
   return (
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <Router basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/why-hope3" element={<WhyHope3 />} />
