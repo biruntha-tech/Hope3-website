@@ -34,6 +34,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -46,34 +47,34 @@
 }
 
 .text-education {
-  font-size: 60px;
+  font-size: 45px;
   font-weight: 950;
   color: red;
   font-family: 'Cooper Black', 'Arial Black', sans-serif;
   letter-spacing: 4px;
-  text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
   transform: perspective(500px) rotateX(15deg);
   display: flex;
 }
 
 .text-empowerment {
-  font-size: 60px;
+  font-size: 45px;
   font-weight: 950;
   color: green;
   font-family: 'Cooper Black', 'Arial Black', sans-serif;
   letter-spacing: 4px;
-  text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
   transform: perspective(500px) rotateX(15deg);
   display: flex;
 }
 
 .text-entrepreneurship {
-  font-size: 60px;
+  font-size: 45px;
   font-weight: 950;
   color: blue;
   font-family: 'Cooper Black', 'Arial Black', sans-serif;
   letter-spacing: 4px;
-  text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
   transform: perspective(500px) rotateX(15deg);
   display: flex;
 }
@@ -87,5 +88,106 @@
 .letter:hover {
   transform: translateY(-10px) scale(1.2);
   margin: 0 5px;
-  text-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Responsive - Stack text below logo */
+@media (max-width: 768px) {
+  .spinning-logo-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .text-content {
+    align-items: center;
+    width: 100%;
+  }
+
+  .text-education {
+    font-size: 5.5vw !important;
+    letter-spacing: 0 !important;
+    justify-content: center;
+    transform: none !important;
+  }
+
+  .text-empowerment {
+    font-size: 5vw !important;
+    letter-spacing: 0 !important;
+    justify-content: center;
+    transform: none !important;
+  }
+
+  .text-entrepreneurship {
+    font-size: 4vw !important;
+    letter-spacing: 0 !important;
+    justify-content: center;
+    transform: none !important;
+  }
+
+  .spinning-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spinning-logo-container {
+    padding: 0 5px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .text-content {
+    max-width: 100%;
+  }
+
+  .text-education {
+    font-size: 5vw !important;
+    letter-spacing: 0 !important;
+  }
+
+  .text-empowerment {
+    font-size: 4.5vw !important;
+    letter-spacing: 0 !important;
+  }
+
+  .text-entrepreneurship {
+    font-size: 3.5vw !important;
+    letter-spacing: 0 !important;
+  }
+
+  .spinning-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+}
+
+/* Extra small phones like iPhone SE */
+@media (max-width: 375px) {
+  .text-education {
+    font-size: 4vw !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .text-empowerment {
+    font-size: 3.5vw !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .text-entrepreneurship {
+    font-size: 2.8vw !important;
+    letter-spacing: -0.5px !important;
+  }
 }

@@ -216,8 +216,8 @@ const Navbar = () => {
 
           <div className={`get-involved-card ${showGetInvolved ? 'show' : ''}`}>
             <div className="simple-menu">
-              <button className="simple-button">Join HOPE3</button>
-              <button className="simple-button">Make a Gift</button>
+              <button className="simple-button" onClick={() => window.location.href = '/join-hope3'}>Join HOPE3</button>
+              <button className="simple-button" onClick={() => window.location.href = '/donate'}>Make a Gift</button>
               <button className="simple-button">Give Feedback</button>
             </div>
           </div>
