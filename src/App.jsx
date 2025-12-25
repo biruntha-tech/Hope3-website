@@ -20,7 +20,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import WhyHope3 from "./pages/WhyHope3.jsx";
+import WhyHope3 from "./pages/whyHope3.jsx";
 import Hope3Journey from "./pages/Hope3Journey.jsx";
 import OurStudents from "./pages/OurStudents.jsx";
 
