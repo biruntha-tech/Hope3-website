@@ -73,7 +73,7 @@ const Donate = () => {
                     {
                         name: formData.fullName,
                         email: formData.email,
-                        phone: formData.contactNumber
+                        contact_no: formData.contactNumber
                     }
                 ]);
 
@@ -210,25 +210,6 @@ const Donate = () => {
                             </form>
                         </>
                     )}
-                </div>
-            </section>
-
-            {/* Impact Section */}
-            <section className="donate-impact-section">
-                <h2>Your Impact Matters</h2>
-                <div className="impact-cards">
-                    <div className="impact-card">
-                        <div className="impact-number">100+</div>
-                        <div className="impact-label">Students Supported</div>
-                    </div>
-                    <div className="impact-card">
-                        <div className="impact-number">95%</div>
-                        <div className="impact-label">Graduation Rate</div>
-                    </div>
-                    <div className="impact-card">
-                        <div className="impact-number">50+</div>
-                        <div className="impact-label">Career Placements</div>
-                    </div>
                 </div>
             </section>
 

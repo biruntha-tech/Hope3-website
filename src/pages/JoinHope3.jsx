@@ -71,7 +71,7 @@ const JoinHope3 = () => {
                     district: studentForm.district,
                     passion: studentForm.passion || null,
                     email: studentForm.email,
-                    phone: studentForm.contactNumber
+                    contact_no: studentForm.contactNumber
                 }]);
 
             if (supabaseError) throw supabaseError;
@@ -115,7 +115,7 @@ const JoinHope3 = () => {
                     district: volunteerForm.district,
                     volunteer_location: volunteerForm.volunteerLocation,
                     email: volunteerForm.email,
-                    phone: volunteerForm.contactNumber
+                    contact_no: volunteerForm.contactNumber
                 }]);
 
             if (supabaseError) throw supabaseError;
@@ -157,7 +157,7 @@ const JoinHope3 = () => {
                 .insert([{
                     name: donorForm.name,
                     email: donorForm.email,
-                    phone: donorForm.contactNumber
+                    contact_no: donorForm.contactNumber
                 }]);
 
             if (supabaseError) throw supabaseError;
