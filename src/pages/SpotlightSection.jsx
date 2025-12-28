@@ -12,7 +12,7 @@ const SpotlightSection = () => {
       link: "#"
     },
     {
-      id: 2, 
+      id: 2,
       title: "Education Initiative Reaches 500 Students",
       date: "November 2024",
       description: "Our comprehensive education program expands to rural communities",
@@ -21,7 +21,7 @@ const SpotlightSection = () => {
     {
       id: 3,
       title: "Women Empowerment Workshop Success",
-      date: "October 2024", 
+      date: "October 2024",
       description: "Building confidence and leadership skills among women",
       link: "#"
     },
@@ -49,8 +49,8 @@ const SpotlightSection = () => {
             Spotlight & News
           </h2>
         </div>
-        
-        <div className="rounded-3xl p-8 shadow-lg" style={{backgroundColor: '#A0B6E6'}}>
+
+        <div className="rounded-3xl p-8 shadow-lg" style={{ backgroundColor: '#A0B6E6' }}>
           <div className="space-y-6">
             {news.map((item) => (
               <div
@@ -58,14 +58,12 @@ const SpotlightSection = () => {
                 className="border-b border-white/20 last:border-b-0 pb-6 last:pb-0 cursor-pointer hover:bg-white/10 p-4 rounded-lg transition-colors duration-200"
                 onClick={() => window.open(item.link, '_blank')}
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-semibold text-black hover:text-gray-700 transition-colors">
-                    {item.title}
-                  </h3>
-                  <span className="text-sm text-black whitespace-nowrap ml-4">
-                    {item.date}
-                  </span>
+                <div className="text-sm text-black font-medium mb-2">
+                  {item.date}
                 </div>
+                <h3 className="text-lg font-semibold text-black hover:text-gray-700 transition-colors mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-black">
                   {item.description}
                 </p>

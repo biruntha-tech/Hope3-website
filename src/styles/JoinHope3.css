@@ -71,7 +71,7 @@
     align-items: center;
     gap: 8px;
     padding: 20px 30px;
-    background: white;
+    background: #e8f5e8;
     border: 2px solid #e2e8f0;
     border-radius: 16px;
     cursor: pointer;
@@ -127,7 +127,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: white;
+    background: #e8f5e8;
     border-radius: 24px;
     padding: 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
@@ -189,7 +189,7 @@
 .form-group input:focus {
     outline: none;
     border-color: #8b5cf6;
-    background: white;
+    background: #e8f5e8;
     box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
 }
 
@@ -206,25 +206,29 @@
 /* Submit Button */
 .submit-btn {
     width: 100%;
-    padding: 16px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    padding: 18px;
+    font-size: 1.2rem;
+    font-weight: 800;
     color: white;
     background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
     border: none;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 8px;
+    margin-top: 16px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .submit-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.5);
 }
 
 .submit-btn:disabled {
@@ -396,11 +400,12 @@
     }
 
     .form-cards-container {
-        min-height: 650px;
+        min-height: 750px;
+        margin-bottom: 40px;
     }
 
     .form-card {
-        padding: 25px 18px;
+        padding: 25px 18px 40px;
         border-radius: 18px;
     }
 
@@ -409,7 +414,12 @@
     }
 
     .submit-btn {
-        padding: 14px;
-        font-size: 1rem;
+        padding: 16px;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
+    .join-tabs-section {
+        padding: 60px 20px 100px;
     }
 }
