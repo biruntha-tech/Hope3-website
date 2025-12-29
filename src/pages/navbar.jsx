@@ -84,8 +84,24 @@ const Navbar = () => {
             </button>
             {activeDropdown === 'Our Work' && (
               <div className="dropdown show">
-                <div className="dropdown-link">Our Students</div>
-                <div className="dropdown-link">Our Projects</div>
+                <button
+                  className="dropdown-link"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.location.href = '/our-students';
+                  }}
+                >
+                  Our Students
+                </button>
+                <button
+                  className="dropdown-link"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.location.href = '/our-projects';
+                  }}
+                >
+                  Our Projects
+                </button>
               </div>
             )}
           </div>
