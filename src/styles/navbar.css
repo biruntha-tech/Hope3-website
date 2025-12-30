@@ -6,6 +6,7 @@
   background: black;
   backdrop-filter: blur(10px);
   border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   z-index: 1000;
   height: 50px;
 }
@@ -46,12 +47,17 @@
 
 .navbar-center-link {
   justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-center-logo {
   height: 50px;
   width: auto;
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Navigation links container */
@@ -67,14 +73,14 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .navbar-section {
@@ -92,7 +98,7 @@
 }
 
 .section-title {
-  font-size: 0.75rem;
+  font-size: 0.35rem;
   font-weight: 500;
   color: white !important;
   transition: color 0.3s;
@@ -100,6 +106,24 @@
   background: transparent !important;
   cursor: pointer;
   white-space: nowrap;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  opacity: 1;
+  transition: background 0.3s;
+}
+
+.section-title:hover::after {
+  background: #4FB3E8;
 }
 
 .dropdown-arrow {
@@ -332,7 +356,7 @@
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: white;
+  background: #e8f5e8;
   border-radius: 2px;
   transition: all 0.3s ease;
   display: block;

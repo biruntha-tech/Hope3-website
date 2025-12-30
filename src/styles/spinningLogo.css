@@ -2,9 +2,10 @@
 .spinning-logo-container {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
   margin: 0 auto;
-  max-width: 600px;
+  margin-top: 40px;
+  width: 100%;
 }
 
 .logo-wrapper {
@@ -40,58 +41,7 @@
   }
 }
 
-.text-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.text-education {
-  font-size: 45px;
-  font-weight: 950;
-  color: red;
-  font-family: 'Cooper Black', 'Arial Black', sans-serif;
-  letter-spacing: 4px;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
-  transform: perspective(500px) rotateX(15deg);
-  display: flex;
-}
-
-.text-empowerment {
-  font-size: 45px;
-  font-weight: 950;
-  color: green;
-  font-family: 'Cooper Black', 'Arial Black', sans-serif;
-  letter-spacing: 4px;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
-  transform: perspective(500px) rotateX(15deg);
-  display: flex;
-}
-
-.text-entrepreneurship {
-  font-size: 45px;
-  font-weight: 950;
-  color: blue;
-  font-family: 'Cooper Black', 'Arial Black', sans-serif;
-  letter-spacing: 4px;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
-  transform: perspective(500px) rotateX(15deg);
-  display: flex;
-}
-
-.letter {
-  display: inline-block;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.letter:hover {
-  transform: translateY(-10px) scale(1.2);
-  margin: 0 5px;
-  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
-}
-
-/* Mobile Responsive - Stack text below logo */
+/* Mobile Responsive - Hide text and center logo */
 @media (max-width: 768px) {
   .spinning-logo-container {
     flex-direction: column;
@@ -100,32 +50,12 @@
     padding: 0 10px;
     width: 100%;
     box-sizing: border-box;
+    justify-content: center !important;
   }
 
-  .text-content {
-    align-items: center;
-    width: 100%;
-  }
-
-  .text-education {
-    font-size: 5.5vw !important;
-    letter-spacing: 0 !important;
-    justify-content: center;
-    transform: none !important;
-  }
-
-  .text-empowerment {
-    font-size: 5vw !important;
-    letter-spacing: 0 !important;
-    justify-content: center;
-    transform: none !important;
-  }
-
-  .text-entrepreneurship {
-    font-size: 4vw !important;
-    letter-spacing: 0 !important;
-    justify-content: center;
-    transform: none !important;
+  /* Center the logo wrapper */
+  .logo-wrapper {
+    margin: 0 auto;
   }
 
   .spinning-logo {
@@ -142,26 +72,6 @@
   .spinning-logo-container {
     padding: 0 5px;
     max-width: 100%;
-    overflow: hidden;
-  }
-
-  .text-content {
-    max-width: 100%;
-  }
-
-  .text-education {
-    font-size: 5vw !important;
-    letter-spacing: 0 !important;
-  }
-
-  .text-empowerment {
-    font-size: 4.5vw !important;
-    letter-spacing: 0 !important;
-  }
-
-  .text-entrepreneurship {
-    font-size: 3.5vw !important;
-    letter-spacing: 0 !important;
   }
 
   .spinning-logo {
@@ -176,18 +86,12 @@
 
 /* Extra small phones like iPhone SE */
 @media (max-width: 375px) {
-  .text-education {
-    font-size: 4vw !important;
-    letter-spacing: -0.5px !important;
+  .spinning-logo {
+    width: 70px;
+    height: 70px;
   }
 
-  .text-empowerment {
-    font-size: 3.5vw !important;
-    letter-spacing: -0.5px !important;
-  }
-
-  .text-entrepreneurship {
-    font-size: 2.8vw !important;
-    letter-spacing: -0.5px !important;
+  .logo-text {
+    font-size: 16px;
   }
 }
