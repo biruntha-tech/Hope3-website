@@ -9,22 +9,23 @@
 
 /* Page Title */
 .page-title {
-  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+  background: rgba(0, 120, 188, 0.28);
   padding: 20px 40px;
   text-align: center;
   margin: 100px auto 30px auto;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 120, 188, 0.4);
   width: 100%;
   max-width: 1200px;
 }
 
 .page-title h1 {
-  color: white;
+  color: black;
   font-size: 48px;
   font-weight: 900;
   margin: 0;
   letter-spacing: 2px;
+  font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
 /* Header Image */
@@ -221,7 +222,7 @@
 
 /* Mission/Vision Section */
 .mission-vision {
-  background-color: #e8f5e8;
+  background-color: transparent;
   padding: 60px 60px;
 }
 
@@ -241,7 +242,7 @@
   border-radius: 15px;
   padding-left: 25px;
   padding-right: 25px;
-  background-color: #e8f5e8;
+  background-color: rgba(150, 225, 135, 0.47);
 }
 
 .mission-content h2 {

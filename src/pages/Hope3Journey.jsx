@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Hope3Journey.css';
 import journeyImage from '../assets/journey/Gemini_Generated_Image_yyvlsoyyvlsoyyvl-removebg-preview.png';
 import mobileTrackImage from '../assets/journey/_620DED87-C755-4F75-9D5F-3EA3E770D415_-removebg-preview.png';
@@ -9,6 +9,8 @@ const JourneyTimeline = () => {
   const [selectedYear, setSelectedYear] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileSelectedStation, setMobileSelectedStation] = useState(null);
+  const [visibleStartIndex, setVisibleStartIndex] = useState(0);
+  const trackContainerRef = useRef(null);
 
   // Detect mobile viewport
   useEffect(() => {
@@ -20,6 +22,31 @@ const JourneyTimeline = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Handle page scroll to update visible icons (show 3 at a time)
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handlePageScroll = () => {
+      if (trackContainerRef.current) {
+        const rect = trackContainerRef.current.getBoundingClientRect();
+        const containerTop = rect.top;
+        const viewportHeight = window.innerHeight;
+
+        // Calculate scroll progress based on container position
+        const scrollProgress = Math.max(0, (viewportHeight / 2 - containerTop) / 100);
+        const newStartIndex = Math.floor(scrollProgress);
+        const maxStartIndex = 5; // 8 icons - 3 visible = 5 max start index
+
+        setVisibleStartIndex(Math.min(Math.max(0, newStartIndex), maxStartIndex));
+      }
+    };
+
+    window.addEventListener('scroll', handlePageScroll);
+    handlePageScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handlePageScroll);
+  }, [isMobile]);
 
   const studentData = [
     { year: 2018, students: 7, station: "Social projects findabed", icon: "🏠" },
@@ -52,8 +79,8 @@ const JourneyTimeline = () => {
     <>
       <Navbar />
       {isMobile ? (
-        // Mobile-specific layout
-        <div className="mobile-journey-layout">
+        // Mobile-specific layout with scroll-based icons
+        <div className="mobile-scroll-journey">
           <div style={{ textAlign: 'center' }}>
             <h1 className="journey-headline">HOPE3 Journey</h1>
           </div>
@@ -66,70 +93,60 @@ const JourneyTimeline = () => {
             <p className="banner-author">- Lao Tzu</p>
           </div>
 
-          {/* HOPE3 Story Section */}
-          <div className="hope3-story">
-            <p className="story-intro">
-              <strong>HOPE3 began modestly,</strong> driven by a simple vision to make learning accessible to all.
-            </p>
-            <p className="story-text">
-              Over the years, it has grown steadily, shaping countless student journeys.
-            </p>
-            <p className="story-text">
-              This transformation was made possible by the unwavering support of volunteers.
-            </p>
-            <p className="story-text">
-              Generous donors joined hands, strengthening every step of the mission.
-            </p>
-            <p className="story-text">
-              Each contribution—big or small—added a unique spark of change.
-            </p>
-            <p className="story-text">
-              Together, they empowered students to learn, dream, and achieve.
-            </p>
-            <p className="story-highlight">
-              <strong>Today, HOPE3 stands as a catalyst—transforming every student's life.</strong>
-            </p>
-          </div>
+          {/* Instruction text */}
+          <p className="scroll-instruction">
+            Scroll vertically to see milestones. Tap icons to view details.
+          </p>
 
-          {/* Zigzag Track Visualization */}
-          <div className="track-visualization">
-            <p className="track-instruction">
-              Tap the icons to see milestone details
-            </p>
-            <div className="track-container">
-              <img src={mobileTrackImage} alt="Journey Track" className="track-image" />
+          {/* Main content area: Track on left, Card on right */}
+          <div className="mobile-journey-content" ref={trackContainerRef}>
+            {/* Left side: Track with icons */}
+            <div className="track-side">
+              <img src={mobileTrackImage} alt="Journey Track" className="track-left-image" />
 
-              {/* Station markers in zigzag pattern */}
-              {studentData.map(({ year, students, station, icon }, index) => {
-                const position = 8 + (index * 11.5); // Distribute vertically
-                const isLeft = index % 2 === 0; // Alternate left/right
-                const isSelected = mobileSelectedStation === year;
+              {/* Scrollable icons container - shows 3 at a time */}
+              <div className="icons-scroll-box">
+                {studentData.map(({ year, students, station, icon }, index) => {
+                  const isSelected = mobileSelectedStation === year;
 
-                return (
-                  <div
-                    key={year}
-                    className={`track - station ${isLeft ? 'left' : 'right'} `}
-                    style={{ top: `${position}% ` }}
-                  >
-                    {/* Icon marker */}
+                  return (
                     <div
-                      className={`track - marker ${isSelected ? 'selected' : ''} `}
+                      key={year}
+                      className={`scroll-icon-item ${isSelected ? 'selected' : ''}`}
                       onClick={() => setMobileSelectedStation(isSelected ? null : year)}
                     >
-                      <span className="track-icon">{icon}</span>
-                    </div>
-
-                    {/* Content box - shows on selection */}
-                    {isSelected && (
-                      <div className={`track - info - box ${isLeft ? 'left' : 'right'} `}>
-                        <div className="track-year">{year}</div>
-                        <div className="track-station-name">{station}</div>
-                        <div className="track-students">{students} Students</div>
+                      <div className={`scroll-icon-marker ${isSelected ? 'selected' : ''}`}>
+                        <span className="scroll-icon-emoji">{icon}</span>
                       </div>
-                    )}
+                      <span className="scroll-icon-year">{year}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right side: Content card */}
+            <div className="card-side">
+              {mobileSelectedStation ? (
+                <div className="mobile-content-card">
+                  <div className="card-icon">
+                    {studentData.find(d => d.year === mobileSelectedStation)?.icon}
                   </div>
-                );
-              })}
+                  <div className="card-year">
+                    {mobileSelectedStation}
+                  </div>
+                  <div className="card-station-name">
+                    {studentData.find(d => d.year === mobileSelectedStation)?.station}
+                  </div>
+                  <div className="card-students">
+                    {studentData.find(d => d.year === mobileSelectedStation)?.students} Students
+                  </div>
+                </div>
+              ) : (
+                <div className="card-placeholder">
+                  <p>👈 Tap an icon to view details</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -44,13 +44,13 @@ const SpotlightSection = () => {
   return (
     <section className="py-20 px-6 bg-blue-50">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-gradient-to-r from-purple-700 to-blue-600 rounded-2xl p-6 mb-12 text-center">
-          <h2 className="text-4xl font-bold text-white">
+        <div className="rounded-2xl p-6 mb-12 text-center" style={{ backgroundColor: 'rgba(0, 120, 188, 0.28)' }}>
+          <h2 className="text-4xl font-bold text-black font-kdam">
             Spotlight & News
           </h2>
         </div>
 
-        <div className="rounded-3xl p-8 shadow-lg" style={{ backgroundColor: '#A0B6E6' }}>
+        <div className="rounded-3xl p-8 shadow-lg" style={{ backgroundColor: 'rgba(150, 225, 135, 0.47)' }}>
           <div className="space-y-6">
             {news.map((item) => (
               <div
