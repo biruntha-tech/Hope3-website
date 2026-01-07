@@ -3,10 +3,26 @@ import './OurProjects.css';
 import Navbar from './navbar';
 import NewFooter from './NewFooter';
 
+// Use local assets for the gallery
+import img1 from '../assets/transformation/img1.jpeg';
+import img2 from '../assets/transformation/img2.jpeg';
+import img3 from '../assets/transformation/img3.jpeg';
+import img4 from '../assets/transformation/img4.jpeg';
+import img5 from '../assets/transformation/img5.jpeg';
+import img6 from '../assets/transformation/img6.jpeg';
+import img7 from '../assets/transformation/img7.jpeg';
+import img8 from '../assets/transformation/img8.jpeg';
+import educationImg from '../assets/education.jpeg';
+import empowermentImg from '../assets/empowerment.jpeg';
+import entrepreneurshipImg from '../assets/enterpreneurship.jpeg';
+import graduationImg from '../assets/college-graduation-pictures.jpg';
+
 const OurProjects = () => {
     const [activeFilter, setActiveFilter] = useState('All');
     const [selectedProject, setSelectedProject] = useState(null);
     const [hoveredCard, setHoveredCard] = useState(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [slideDirection, setSlideDirection] = useState('right'); // 'right' or 'left'
     const modalRef = React.useRef(null);
 
     const projects = [
@@ -21,7 +37,12 @@ const OurProjects = () => {
             status: "Active",
             impact: "500+ individuals helped",
             team: "25 volunteers",
-            location: "Multiple Cities"
+            impact: "500+ individuals helped",
+            team: "25 volunteers",
+            impact: "500+ individuals helped",
+            team: "25 volunteers",
+            location: "Multiple Cities",
+            gallery: [img1, img2, img3, img4]
         },
         {
             id: 2,
@@ -34,7 +55,12 @@ const OurProjects = () => {
             status: "Active",
             impact: "150+ scholarships awarded",
             team: "12 partner schools",
-            location: "Pan India"
+            impact: "150+ scholarships awarded",
+            team: "12 partner schools",
+            impact: "150+ scholarships awarded",
+            team: "12 partner schools",
+            location: "Pan India",
+            gallery: [educationImg, graduationImg, img4, img5]
         },
         {
             id: 3,
@@ -47,7 +73,12 @@ const OurProjects = () => {
             status: "Active",
             impact: "200+ students mentored",
             team: "30 industry mentors",
-            location: "Virtual & On-site"
+            impact: "200+ students mentored",
+            team: "30 industry mentors",
+            impact: "200+ students mentored",
+            team: "30 industry mentors",
+            location: "Virtual & On-site",
+            gallery: [empowermentImg, img5, img6, img7]
         },
         {
             id: 4,
@@ -60,7 +91,12 @@ const OurProjects = () => {
             status: "Active",
             impact: "28 IIT selections",
             team: "15 expert coaches",
-            location: "Major Metro Cities"
+            impact: "28 IIT selections",
+            team: "15 expert coaches",
+            impact: "28 IIT selections",
+            team: "15 expert coaches",
+            location: "Major Metro Cities",
+            gallery: [img7, img8, educationImg, img1]
         },
         {
             id: 5,
@@ -73,7 +109,12 @@ const OurProjects = () => {
             status: "Active",
             impact: "75+ students placed abroad",
             team: "Expert counselors",
-            location: "10 Countries"
+            impact: "75+ students placed abroad",
+            team: "Expert counselors",
+            impact: "75+ students placed abroad",
+            team: "Expert counselors",
+            location: "10 Countries",
+            gallery: [graduationImg, img1, img2, img3]
         },
         {
             id: 6,
@@ -86,7 +127,12 @@ const OurProjects = () => {
             status: "Active",
             impact: "120+ students employed",
             team: "20 partner companies",
-            location: "Remote & Hybrid"
+            impact: "120+ students employed",
+            team: "20 partner companies",
+            impact: "120+ students employed",
+            team: "20 partner companies",
+            location: "Remote & Hybrid",
+            gallery: [empowermentImg, img3, img4, img5]
         },
         {
             id: 7,
@@ -99,7 +145,12 @@ const OurProjects = () => {
             status: "Active",
             impact: "15 startups launched",
             team: "Industry mentors",
-            location: "Innovation Centers"
+            impact: "15 startups launched",
+            team: "Industry mentors",
+            impact: "15 startups launched",
+            team: "Industry mentors",
+            location: "Innovation Centers",
+            gallery: [entrepreneurshipImg, img5, img6, img7]
         },
         {
             id: 8,
@@ -112,7 +163,8 @@ const OurProjects = () => {
             status: "Active",
             impact: "12 placements achieved",
             team: "8 MAANG mentors",
-            location: "Virtual"
+            location: "Virtual",
+            gallery: [img7, img8, graduationImg, img1]
         }
     ];
 
@@ -131,12 +183,43 @@ const OurProjects = () => {
 
     const openModal = (project) => {
         setSelectedProject(project);
+        setCurrentImageIndex(0);
+        setSlideDirection('right');
         document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
         setSelectedProject(null);
         document.body.style.overflow = 'auto';
+    };
+
+    // Auto-loop effect
+    React.useEffect(() => {
+        if (!selectedProject) return;
+
+        const interval = setInterval(() => {
+            nextImage();
+        }, 3000); // Change image every 3 seconds
+
+        return () => clearInterval(interval);
+    }, [selectedProject, currentImageIndex]);
+
+    const nextImage = () => {
+        if (selectedProject) {
+            setSlideDirection('right');
+            setCurrentImageIndex((prev) =>
+                prev === selectedProject.gallery.length - 1 ? 0 : prev + 1
+            );
+        }
+    };
+
+    const prevImage = () => {
+        if (selectedProject) {
+            setSlideDirection('left');
+            setCurrentImageIndex((prev) =>
+                prev === 0 ? selectedProject.gallery.length - 1 : prev - 1
+            );
+        }
     };
 
     const scrollToBottom = () => {
@@ -311,6 +394,46 @@ const OurProjects = () => {
                             <div className="modal-section">
                                 <h3 className="modal-section-title">About This Project</h3>
                                 <p className="modal-description">{selectedProject.fullDescription}</p>
+                            </div>
+
+                            <div className="modal-section">
+                                <h3 className="modal-section-title">Project Gallery</h3>
+                                <div className="carousel-container">
+                                    <button className="carousel-btn prev" onClick={prevImage}>
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                        </svg>
+                                    </button>
+
+                                    <div className="carousel-slide">
+                                        {selectedProject.gallery && selectedProject.gallery.map((img, index) => (
+                                            <div
+                                                key={index}
+                                                className={`carousel-image-wrapper ${index === currentImageIndex ? 'active' : ''} ${slideDirection}`}
+                                            >
+                                                {index === currentImageIndex && (
+                                                    <img src={img} alt={`Gallery ${index + 1}`} className="carousel-image" />
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <button className="carousel-btn next" onClick={nextImage}>
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                                        </svg>
+                                    </button>
+
+                                    <div className="carousel-dots">
+                                        {selectedProject.gallery && selectedProject.gallery.map((_, index) => (
+                                            <span
+                                                key={index}
+                                                className={`carousel-dot ${index === currentImageIndex ? 'active' : ''}`}
+                                                onClick={() => setCurrentImageIndex(index)}
+                                            ></span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="modal-section">

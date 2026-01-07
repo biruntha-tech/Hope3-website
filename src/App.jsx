@@ -24,6 +24,8 @@ import WhyHope3 from "./pages/WhyHope3.jsx";
 import Hope3Journey from "./pages/Hope3Journey.jsx";
 import Animations from "./pages/Animations.jsx";
 import OurProjects from "./pages/OurProjects.jsx";
+import Hope3Pillers from "./pages/Hope3Pillers.jsx";
+import StudentApplication from "./pages/StudentApplication.jsx";
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/why-hope3" element={<WhyHope3 />} />
         <Route path="/hope3-journey" element={<Hope3Journey />} />
+        <Route path="/hope3-pillars" element={<Hope3Pillers />} />
         <Route path="/our-students" element={<div>Our Students Page</div>} />
         <Route path="/our-projects" element={<OurProjects />} />
         <Route path="/hope3-journey" element={<div>HOPE3 Journey Page</div>} />
@@ -41,6 +44,7 @@ function App() {
         <Route path="/faq" element={<div>FAQ Page</div>} />
         <Route path="/be-informed" element={<div>Be Informed Page</div>} />
         <Route path="/animations" element={<Animations />} />
+        <Route path="/join-hope3" element={<StudentApplication />} />
       </Routes>
     </Router>
   );

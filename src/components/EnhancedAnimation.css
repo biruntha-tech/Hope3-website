@@ -1,0 +1,224 @@
+.enhanced-animation-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Tab Navigation */
+.animation-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  padding: 8px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.tab-icon {
+  font-size: 16px;
+}
+
+.tab-text {
+  font-weight: 600;
+}
+
+/* Content Area */
+.animation-content {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-animation,
+.stories-animation {
+  width: 100%;
+  text-align: center;
+}
+
+.animation-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animation-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Story Card Styles */
+.story-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  color: #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  color: white;
+}
+
+.story-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.story-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.story-info p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.story-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.story-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.story-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enhanced-animation-container {
+    padding: 20px 10px;
+  }
+  
+  .animation-title {
+    font-size: 2rem;
+  }
+  
+  .animation-subtitle {
+    font-size: 1rem;
+  }
+  
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .tab-text {
+    display: none;
+  }
+  
+  .story-header {
+    padding: 16px;
+  }
+  
+  .story-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animation-tabs {
+    padding: 6px;
+  }
+  
+  .tab-button {
+    padding: 8px 12px;
+  }
+  
+  .animation-title {
+    font-size: 1.75rem;
+  }
+  
+  .story-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .story-info h4 {
+    font-size: 14px;
+  }
+  
+  .story-info p {
+    font-size: 11px;
+  }
+}

@@ -184,6 +184,15 @@ const Navbar = () => {
             </button>
             {activeDropdown === 'About Us' && (
               <div className="dropdown show">
+                <button
+                  className="dropdown-link"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.location.href = '/hope3-pillars';
+                  }}
+                >
+                  HOPE3 Pillars
+                </button>
                 <div className="dropdown-link">Leadership & Board</div>
                 <div className="dropdown-link">Financials</div>
                 <div className="dropdown-link">FAQ</div>
@@ -196,17 +205,67 @@ const Navbar = () => {
         <div className="profile-dropdown-container" ref={getInvolvedRef}>
           <button
             className={`getinv-btn ${showGetInvolved ? 'active' : ''}`}
-            onClick={() => setShowGetInvolved(!showGetInvolved)}
+            onClick={() => {
+              setShowGetInvolved(!showGetInvolved);
+              // Track engagement
+              if (!showGetInvolved) {
+                console.log('Get Involved button clicked - engagement tracked');
+              }
+            }}
+            onMouseEnter={() => {
+              // Add subtle animation on hover
+              const btn = document.querySelector('.getinv-btn');
+              if (btn && !showGetInvolved) {
+                btn.style.transform = 'translateY(-2px) scale(1.05)';
+              }
+            }}
+            onMouseLeave={() => {
+              const btn = document.querySelector('.getinv-btn');
+              if (btn && !showGetInvolved) {
+                btn.style.transform = 'translateY(0) scale(1)';
+              }
+            }}
           >
             <img src={usericon} alt="" className="btn-icon" />
             <span className="btn-text">Get Involved</span>
           </button>
 
           <div className={`get-involved-card ${showGetInvolved ? 'show' : ''}`}>
+            <div className="card-header">
+              <h3>Join Our Mission</h3>
+              <p>Choose how you'd like to make an impact</p>
+            </div>
             <div className="simple-menu">
-              <button className="simple-button">Join HOPE3</button>
-              <button className="simple-button">Make a Gift</button>
-              <button className="simple-button">Give Feedback</button>
+              <button className="simple-button primary-action" onClick={() => {
+                console.log('Join HOPE3 clicked');
+                navigate('/join-hope3');
+              }}>
+                <span className="button-icon">🎓</span>
+                <div className="button-content">
+                  <span className="button-title">Join HOPE3</span>
+                  <span className="button-subtitle">Become a member</span>
+                </div>
+              </button>
+              <button className="simple-button" onClick={() => {
+                console.log('Make a Gift clicked');
+                // Add donation logic here
+              }}>
+                <span className="button-icon">💝</span>
+                <div className="button-content">
+                  <span className="button-title">Make a Gift</span>
+                  <span className="button-subtitle">Support our cause</span>
+                </div>
+              </button>
+              <button className="simple-button" onClick={() => {
+                console.log('Give Feedback clicked');
+                // Add feedback logic here
+              }}>
+                <span className="button-icon">💬</span>
+                <div className="button-content">
+                  <span className="button-title">Give Feedback</span>
+                  <span className="button-subtitle">Share your thoughts</span>
+                </div>
+              </button>
             </div>
           </div>
         </div>
